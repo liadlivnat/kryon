@@ -1,0 +1,7 @@
+<mat-form-field class="main" appearance="fill">
+  <mat-label *ngIf="!selectedOptions.length" class="header">Pick a category</mat-label>
+  <span class="down-arrow"></span>
+  <mat-select (selectionChange)="onOptionSelected($event.value)" [formControl]="optionsForm" multiple>
+    <mat-option *ngFor="let option of options; trackBy: trackByFunc" [value]="option">{{ option }}</mat-option>
+  </mat-select>
+</mat-form-field>

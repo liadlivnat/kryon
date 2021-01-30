@@ -1,0 +1,35 @@
+.main {
+  height: 40px;
+  width: 215px;
+  background: #ffffff;
+
+  ::ng-deep {
+    .mat-form-field-flex {
+      display: flex;
+      align-items: center;
+      background: white;
+      height: 40px;
+      padding: 0;
+      border: 1px solid #b3bec2;
+      border-radius: 3px;
+    }
+  }
+}
+
+.header {
+  margin-inline-start: 11.5px;
+  line-height: 20px;
+  font-size: 13px;
+  color: #b3bec2;
+}
+
+.down-arrow {
+  position: absolute;
+  right: 12px;
+  top: 0;
+  border: solid #405a66;
+  border-width: 0px 0.5px 0.5px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}

@@ -1,0 +1,12 @@
+<mat-button-toggle-group #group="matButtonToggleGroup">
+  <mat-button-toggle
+    (click)="onButtonSelected(buttonType.random)"
+    [ngClass]="getButtonCss(buttonType.random)"
+    class="button button-random"
+    value="Random"
+    >Random
+  </mat-button-toggle>
+  <mat-button-toggle (click)="onButtonSelected(buttonType.search)" [ngClass]="getButtonCss(buttonType.search)" class="button" value="Search"
+    >Search
+  </mat-button-toggle>
+</mat-button-toggle-group>

@@ -1,0 +1,52 @@
+<div class="main">
+  <div class="images">
+    <img class="images__flames" src="assets/images/flames.png" />
+    <div class="images__chuck-frame">
+      <div class="images__chuck-frame__circle"></div>
+      <img class="images__chuck-frame__chuck" src="assets/svg/chucknorris_logo_coloured_small@2x.svg" />
+    </div>
+  </div>
+  <div class="buttons">
+    <app-buttons-type [selectedButtonType]="selectedButtonType" (buttonSelectedEvent)="onButtonSelected($event)"></app-buttons-type>
+  </div>
+  <div class="details">
+    <div class="random" *ngIf="selectedButtonType === buttonType.random">
+      <div class="random__name">
+        <span>Your name</span>
+        <input [(ngModel)]="inputName" placeholder="e.g. Chuck Norris" class="random__name-input input" />
+      </div>
+      <div class="random__category">
+        <span>Category</span>
+        <div class="random__category__select">
+          <app-multi-select-dropdown
+            (optionsSelection)="onCategoryChanged($event)"
+            [allOptionsKey]="allCategories"
+            [options]="categoryOptions"
+          ></app-multi-select-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="search" *ngIf="selectedButtonType === buttonType.search">
+      <div class="random__name">
+        <span>Key word(s)</span>
+        <input [(ngModel)]="searchKey" placeholder="e.g. egg, break, Chuck Norris, dumb" class="search__key-input input" />
+      </div>
+    </div>
+    <div class="go">
+      <button mat-button class="button-selected go" (click)="onGoClicked()" [disabled]="isGoButtonDisabled()">GO!</button>
+    </div>
+  </div>
+  <div class="content-area">
+    <div *ngIf="selectedButtonType === buttonType.random; else search">
+      <div class="joke" *ngIf="randomJoke">
+        <app-joke [joke]="randomJoke"></app-joke>
+      </div>
+    </div>
+    <ng-template #search>
+      <app-searched-jokes *ngIf="searchedJokes && searchedJokes.length; else noResults" [jokes]="searchedJokes"></app-searched-jokes>
+      <ng-template #noResults>
+        <div *ngIf="searchedJokes">No results, try a different key</div>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>

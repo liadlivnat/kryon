@@ -1,0 +1,44 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$kryon-primary: mat-palette($mat-indigo);
+$kryon-accent: mat-palette($mat-pink, A200, A100, A400);
+$kryon-warn: mat-palette($mat-red);
+
+$kryon-theme: mat-light-theme(
+  (
+    color: (
+      primary: $kryon-primary,
+      accent: $kryon-accent,
+      warn: $kryon-warn,
+    ),
+  )
+);
+
+@include angular-material-theme($kryon-theme);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.mat-sort-header-arrow {
+  color: #405a66;
+  margin: 0 0 0 15px !important;
+}
+
+.mat-select-arrow {
+  visibility: hidden;
+}
+
+.mat-select-value-text {
+  margin-inline-start: 11.5px;
+}
+
+.mat-form-field-underline {
+  display: none !important;
+}

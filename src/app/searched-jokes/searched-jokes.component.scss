@@ -1,0 +1,63 @@
+@import 'src/style/colors';
+
+table {
+  width: 100%;
+  box-shadow: none;
+}
+
+th {
+  width: 31%;
+  color: $font-color-default;
+  font-size: 13px;
+
+  &:first-child {
+    width: 38%;
+  }
+}
+
+td {
+  font-size: 13px;
+}
+
+.title {
+  display: flex;
+
+  &__img {
+    width: 16px;
+    height: 16px;
+    margin-inline-start: 15px;
+    opacity: 0.3;
+
+    &-sorted {
+      position: absolute;
+      left: 90px;
+    }
+  }
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.element-row:not(.expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background: #eff4f7;
+}
+
+.joke-description {
+  margin: 5%;
+}

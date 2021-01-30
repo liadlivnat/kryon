@@ -1,0 +1,22 @@
+@import 'src/style/colors';
+
+.button {
+  background: $button-background;
+  border-radius: 0 3px 3px 0;
+  border: 1px solid $selected-button-color;
+  color: $selected-button-color;
+  width: 120px;
+  height: 40px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+
+  &-random {
+    border-radius: 3px 0 0 3px;
+  }
+
+  &-selected {
+    background: $selected-button-color;
+    color: $white-color;
+  }
+}

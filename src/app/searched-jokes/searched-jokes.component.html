@@ -1,0 +1,45 @@
+<table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>
+      <div class="title"><span class="title__name">ID</span><img class="title__img" src="assets/images/filter.png" /></div>
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="categories">
+    <th mat-header-cell *matHeaderCellDef>
+      <div class="title"><span class="title__name">Category</span><img class="title__img" src="assets/images/filter.png" /></div>
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element.categories }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="createdAt">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header (click)="dateSorted()">
+      <div class="title">
+        <span class="title__name">Date created</span><img class="title__img title__img-sorted" src="assets/images/filter.png" />
+      </div>
+    </th>
+
+    <td mat-cell *matCellDef="let element">{{ element.createdAt }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+      <div *ngIf="expandedElement" class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div class="joke-description">
+          <app-joke [joke]="element" [quoteBackground]="'#EFF4F7'"></app-joke>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let element; columns: displayedColumns"
+    class="element-row"
+    [class.expanded-row]="expandedElement === element"
+    (click)="expandedElement = expandedElement === element ? null : element"
+  ></tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+</table>
