@@ -7,9 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
 import { SearchedJokesComponent } from './searched-jokes/searched-jokes.component';
 import { ButtonsTypeComponent } from './buttons-type/buttons-type.component';
+import { HeaderComponent } from './header/header.component';
+import { PageDetailsComponent } from './page-details/page-details.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchedJokesComponent, ButtonsTypeComponent],
+  declarations: [AppComponent, SearchedJokesComponent, ButtonsTypeComponent, HeaderComponent, PageDetailsComponent],
   imports: [BrowserModule, BrowserAnimationsModule, SharedModule, FormsModule, CoreModule],
   providers: [],
   bootstrap: [AppComponent],

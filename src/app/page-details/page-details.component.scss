@@ -1,0 +1,111 @@
+@import 'src/style/colors';
+@import 'src/style/functions';
+
+.details {
+  background: #fff2ee;
+  position: relative;
+  width: 1000px;
+  height: 104px;
+  border-radius: 3px 3px 0 0;
+  margin-top: 24px;
+  font-size: 13px;
+  color: $font-color-default;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  font-weight: 500;
+
+  @include respond-to('small') {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
+}
+
+.loader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
+
+.random {
+  display: flex;
+
+  &__category {
+    margin-inline-start: 32px;
+    display: flex;
+    align-items: center;
+
+    &__select {
+      margin-inline-start: 14px;
+    }
+
+    @include respond-to('small') {
+      margin: 10px 0 0 0;
+    }
+  }
+
+  &__name-input {
+    width: 290px;
+  }
+
+  @include respond-to('small') {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.input {
+  height: 40px;
+  border: 1px solid #b3bec2;
+  border-radius: 3px;
+  margin-inline-start: 12px;
+  box-sizing: border-box;
+  color: $font-color-default;
+  font-size: 13px;
+  padding: 11.5px;
+
+  @include respond-to('small') {
+    max-width: 135px;
+  }
+}
+
+.search {
+  &__key-input {
+    width: 524px;
+  }
+}
+
+::-webkit-input-placeholder {
+  color: #b3bec2;
+  font-size: 13px;
+}
+
+.go {
+  position: absolute;
+  width: 160px;
+  height: 40px;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:disabled {
+    background: #e3e8eb;
+    cursor: not-allowed;
+  }
+
+  @include respond-to('small') {
+    top: 50%;
+    position: relative;
+    margin-top: 15px;
+    margin-inline-start: 45px;
+  }
+}
+
+.button-selected {
+  background: $selected-button-color;
+  color: $white-color;
+}
