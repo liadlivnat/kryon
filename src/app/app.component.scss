@@ -2,6 +2,10 @@
 @import 'src/style/functions';
 
 .main {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
   max-width: 1366px;
   max-height: 1024px;
   display: flex;
